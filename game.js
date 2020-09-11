@@ -1,9 +1,5 @@
 'use strict';
-/*
-* 小型游戏引擎
-*/
 
-// requestAnimationFrame polyfill
 if (!Date.now)
 Date.now = function() { return new Date().getTime(); };
 (function() {
@@ -14,7 +10,7 @@ Date.now = function() { return new Date().getTime(); };
         window.requestAnimationFrame = window[vp+'RequestAnimationFrame'];
         window.cancelAnimationFrame = (window[vp+'CancelAnimationFrame'] || window[vp+'CancelRequestAnimationFrame']);
     }
-    if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent) // iOS6 is buggy
+    if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent)
     || !window.requestAnimationFrame || !window.cancelAnimationFrame) {
         var lastTime = 0;
         window.requestAnimationFrame = function(callback) {
@@ -148,7 +144,7 @@ function Game(id,params){
             type:'path'
         };
         var options = Object.assign({},defaults,params);
-        if(options.map[options.start.y][options.start.x]||options.map[options.end.y][options.end.x]){ //当起点或终点设置在墙上
+        if(options.map[options.start.y][options.start.x]||options.map[options.end.y][options.end.x]){ 
             return [];
         }
         var finded = false;
